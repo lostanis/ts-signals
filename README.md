@@ -4,7 +4,6 @@ A lightweight, strongly-typed signal / event system for TypeScript with **mandat
 
 Designed for **OOP-style lifecycle-driven code**, not for reactive streams or global event buses.
 
-⸻
 
 ## Installation
 
@@ -12,7 +11,6 @@ Designed for **OOP-style lifecycle-driven code**, not for reactive streams or gl
 npm install ts-signals
 ```
 
-⸻
 
 ## Why ts-signal?
 
@@ -37,7 +35,6 @@ This library is __not__ intended to replace:
 
 If you need functional, stateless, or reactive patterns — use a different tool.
 
-⸻
 
 ## Core design principles
 
@@ -54,7 +51,6 @@ If you need functional, stateless, or reactive patterns — use a different tool
 
 This is a deliberate trade-off in favor of clarity and control.
 
-⸻
 
 ## Basic usage
 
@@ -78,8 +74,6 @@ class GameScene {
 }
 ```
 
-⸻
-
 ## One-time handler
 
 ```ts
@@ -90,8 +84,6 @@ onReady.emit(); // scene.init fires once, then removed
 onReady.emit(); // no output
 ```
 
-⸻
-
 ## Unsubscribe via returned function
 
 ```ts
@@ -100,8 +92,6 @@ const off = signal.add(player.onDamage, player);
 // later...
 off(); // equivalent to signal.remove(player.onDamage, player)
 ```
-
-⸻
 
 ## Using the handler type
 
@@ -119,7 +109,6 @@ onScore.emit(42);
 onScore.remove(handler, player);
 ```
 
-⸻
 
 ## API
 
@@ -129,7 +118,6 @@ Creates a new signal.
 * T — type of data passed to handlers
 * Defaults to void
 
-⸻
 
 ### `signal.add(handler, context): () => void`
 
@@ -144,7 +132,6 @@ Used as:
 
 Throws if handler is not a function.
 
-⸻
 
 ### `signal.addOnce(handler, context): () => void`
 
@@ -152,7 +139,6 @@ Subscribe a handler that fires only once and is then removed.
 
 Throws if handler is not a function.
 
-⸻
 
 ### `signal.emit(data: T): void`
 
@@ -164,14 +150,12 @@ Emit the signal.
   * no guaranteed ordering across different contexts
 * Exceptions are not caught internally
 
-⸻
 
 ### `signal.remove(handler, context): void`
 
 Remove a specific handler.
 The same context must be provided.
 
-⸻
 
 ### `signal.removeContext(context): void`
 
@@ -179,13 +163,11 @@ Remove all handlers registered under a context.
 
 This is the primary cleanup mechanism and should be called when an object is destroyed.
 
-⸻
 
 ### `signal.removeAll(): void`
 
 Remove all handlers (regular and one-time).
 
-⸻
 
 ### `signal.has(handler, context): boolean`
 
@@ -198,7 +180,6 @@ signal.remove(player.onDamage, player);
 signal.has(player.onDamage, player); // false
 ```
 
-⸻
 
 ### `signal.hasContext(context): boolean`
 
@@ -211,7 +192,6 @@ signal.removeContext(player);
 signal.hasContext(player); // false
 ```
 
-⸻
 
 ### `signal.contexts(): Iterable<object>`
 
@@ -223,14 +203,12 @@ signal.add(enemy.onDamage, enemy);
 for (const ctx of signal.contexts()) { ... } // player, enemy
 ```
 
-⸻
 
 ### `signal.listenerCount(): number`
 
 Returns the total number of active handlers (regular + one-time).
 Useful for debugging and leak detection.
 
-⸻
 
 ### `signal.listenerCountFor(context): number`
 
@@ -242,7 +220,6 @@ signal.addOnce(player.onReady, player);
 signal.listenerCountFor(player); // 2
 ```
 
-⸻
 
 ## Memory & lifecycle model
 
@@ -256,7 +233,6 @@ Objects that subscribe to signals are expected to explicitly remove their handle
 
 This mirrors the behavior of DOM events and other ownership-based systems and is a deliberate trade-off in favor of control and debuggability.
 
-⸻
 
 License
 
