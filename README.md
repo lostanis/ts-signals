@@ -1,4 +1,4 @@
-# ts-signal
+# ts-signals
 
 A lightweight, strongly-typed signal / event system for TypeScript with **mandatory context binding, one-time handlers, and grouped removal by owner.**
 
@@ -12,9 +12,9 @@ npm install ts-signals
 ```
 
 
-## Why ts-signal?
+## Why ts-signals?
 
-ts-signal exists to solve a specific problem:
+ts-signals exists to solve a specific problem:
 
 _Managing event subscriptions in object-oriented code without losing track of ownership, lifecycle, or cleanup._
 
@@ -223,7 +223,7 @@ signal.listenerCountFor(player); // 2
 
 ## Memory & lifecycle model
 
-`ts-signal` uses strong references to contexts. This enables:
+`ts-signals` uses strong references to contexts. This enables:
 * explicit ownership
 * predictable cleanup
 * debugging and introspection
