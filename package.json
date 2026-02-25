@@ -1,0 +1,45 @@
+{
+  "name": "ts-signals",
+  "version": "0.1.0",
+  "description": "A typed signal/event system for TypeScript",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "signal",
+    "event",
+    "pubsub",
+    "typescript"
+  ],
+  "license": "MIT",
+  "author": "Stanis Lo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lostanis/ts-signals.git"
+  },
+  "homepage": "https://github.com/lostanis/ts-signals#readme",
+  "bugs": {
+    "url": "https://github.com/lostanis/ts-signals/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
